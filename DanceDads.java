@@ -5,6 +5,7 @@ import java.lang.Math;
 
 import static robocode.util.Utils.normalRelativeAngleDegrees;
 
+import java.awt.*;
 
 import robocode.util.*;
 import java.awt.geom.*;
@@ -29,13 +30,21 @@ public class DanceDads extends AdvancedRobot
 		// and the next line:
 
 		// setColors(Color.red,Color.blue,Color.green); // body,gun,radar
-		Random rand = new Random();
 		// Robot main loop
 		int its = 0;
 		double field_height = getBattleFieldHeight();
 		double field_width = getBattleFieldWidth();
-		
+		Random rand = new Random();
 		while (true) {
+			
+					int a =  rand.nextInt(255);
+					int b =  rand.nextInt(255);
+					int c = rand.nextInt(255);
+					setBodyColor(new Color(a, b, c));
+					setGunColor(new Color(a, b, c));
+					setRadarColor(new Color(a, b, c));
+					setBulletColor(new Color(a, b, c));
+					setScanColor(new Color(a, b, c));
 			// Tell the game we will want to move ahead 40000 -- some large number
 			setAhead(40000);
 			movingForward = true;
